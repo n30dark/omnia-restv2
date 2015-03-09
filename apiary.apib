@@ -1,0 +1,48 @@
+FORMAT: 1A
+
+# Omnia 
+OMNIA API is a *content management* service taht uses REST calls to execute actions.
+
+# Group Notes
+Notes related resources of the **Notes API**
+
+## OMNIA Collection [/omnia]
+### List all PAGES [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 1, "title": "Home", "url": "home"
+        }, {
+          "id": 2, "title": "Contacts", "url": "contacts"
+        }, {
+          "id": 3, "title": "About Us", "url": "about-us"
+        }]
+
+### Create a Page [POST]
++ Request (application/json)
+
+        { "title": "Home", "url": "home" }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Home", "url": "home" }
+
+## Page [/pages/{id}]
+A single Note object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+
+### Retrieve a Note [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": 2, "title": "Pick-up posters from post-office" }
+
+### Remove a Note [DELETE]
++ Response 204
